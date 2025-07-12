@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Full Screen Profile</title>
-<style>
-  html, body {
-    margin: 0; 
-    padding: 0; 
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Device-Specific Image</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* Show desktop image by default */
+    #desktop-img {
+      display: block;
+    }
+
+    /* On screens 768px and smaller, show mobile image instead */
+    @media (max-width: 768px) {
+      #desktop-img {
+        display: none;
+      }
+      #mobile-img {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
-  <img src="profile.jpg" alt="Profile Image" />
+  <!-- Replace these with your actual image file names -->
+  <img src="desktop.jpg" id="desktop-img" alt="Desktop Image" />
+  <img src="mobile.jpg" id="mobile-img" alt="Mobile Image" />
 </body>
 </html>
